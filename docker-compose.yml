@@ -9,9 +9,8 @@ services:
     ports:
       - 8080:8080
     environment:
-      - APP_DB_CONNECTION_STRING=root:gromizk123@tcp(127.0.0.1:3306)/task_orm?charset=utf8mb4&parseTime=True&loc=Local
+      - APP_DB_CONNECTION_STRING=root:gromizk123@tcp(127.0.0.1:3306)/test?charset=utf8mb4&parseTime=True&loc=Local
       - APP_PORT=8080
-
   db:
     image: bitnami/mysql
     restart: unless-stopped
@@ -19,7 +18,7 @@ services:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=gromizk123
-      - MYSQL_DATABASE=task_orm
+      - MYSQL_DATABASE=test
     healthcheck:
       test: ["CMD", "mysql", "-u", "root",  "-pgromizk123", "-e", "show schemas"]
       interval: 10s 
